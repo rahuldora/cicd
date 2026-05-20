@@ -1,19 +1,15 @@
 pipeline {
     agent {
         docker {
-            image 'node:18-alpine'
+            image 'salesforce/cli:latest-slim'
         }
     }
 
     stages {
-        stage('Load Dependencies') {
+        stage('Create Deployment Package') {
             steps {
                 sh '''
-                    npm --version
-                    npm config set prefix ~/.local 
                     ls -la
-                    # npm install @salesforce/cli --global
-                    # sf --version
                 '''
             }
         }
