@@ -1,10 +1,17 @@
 pipeline {
-    agent any
+    agent {
+        docker {
+            image 'node:18-alpine'
+        }
+    }
 
     stages {
-        stage('Hello') {
+        stage('Load Dependencies') {
             steps {
-                echo 'Hi'
+                sh '''
+                    node --version
+                    npm --version
+                '''
             }
         }
     }
