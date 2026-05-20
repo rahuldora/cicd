@@ -10,8 +10,10 @@ pipeline {
             steps {
                 sh '''
                     npm --version
-                    npm install @salesforce/cli --global
-                    sf --version
+                    npm config set prefix ~/.local 
+                    ls -la
+                    # npm install @salesforce/cli --global
+                    # sf --version
                 '''
             }
         }
