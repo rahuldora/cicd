@@ -9,8 +9,9 @@ pipeline {
         stage('Load Dependencies') {
             steps {
                 sh '''
-                    node --version
                     npm --version
+                    npm install @salesforce/cli --global
+                    sf --version
                 '''
             }
         }
