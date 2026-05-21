@@ -111,7 +111,6 @@ pipeline {
                     writeFile file: 'manifest/package.xml', text: packageXml.toString()
 
                     echo packageXml.toString()
-                    cat manifest/package.xml
                 }
             }
         }
@@ -119,6 +118,7 @@ pipeline {
         stage('Validate Deployment') {
             steps {
                 sh '''
+                    cat manifest/package.xml
                     #sf project deploy validate  --manifest manifest/package.xml --target-org DevHub
                 '''
             }
