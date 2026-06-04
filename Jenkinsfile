@@ -24,7 +24,8 @@ pipeline {
             }
             steps {
                 sh '''
-                    sf org login jwt --username $HUB_ORG --jwt-key-file $JWT_CRED_ID --client-id $CONSUMER_KEY
+                    sf -v
+                    #sf org login jwt --username $HUB_ORG --jwt-key-file $JWT_CRED_ID --client-id $CONSUMER_KEY
                 '''
 
             }
